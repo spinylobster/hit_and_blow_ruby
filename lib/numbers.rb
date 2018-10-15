@@ -7,20 +7,6 @@ class Numbers
     @value = [a, b, c, d]
   end
 
-  def count_hit_blow(other)
-    hit = @value.each_with_index.count do |x, i|
-      other.value[i] == x
-    end
-
-    blow = other.value.each_with_index.count do |x, i|
-      @value.each_with_index.any? do |y, j|
-        i != j && x == y
-      end
-    end
-
-    { hit: hit, blow: blow }
-  end
-
   def ==(other)
     @value == other.value
   end

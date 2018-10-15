@@ -2,6 +2,7 @@
 
 require_relative './numbers'
 require_relative './message'
+require_relative './hit_and_blow'
 
 class Game
   attr_accessor :answer
@@ -23,7 +24,7 @@ class Game
     if @answer == guess
       { is_correct: true, hint: { hit: 4, blow: 0 } }
     else
-      { is_correct: false, hint: @answer.count_hit_blow(guess) }
+      { is_correct: false, hint: HitAndBlow.count_hit_blow(answer, guess) }
     end
   end
 
